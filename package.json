@@ -8,7 +8,9 @@
     "dev:css": "npx @tailwindcss/cli -i ./src/public/styles.css -o ./src/public/output.css --minify --watch",
     "build:css": "npx @tailwindcss/cli -i ./src/public/styles.css -o ./src/public/output.css --minify",
     "build:ts": "tsc",
-    "build": "npm run build:css && npm run build:ts",
+    "build": "npm run build:css && npm run build:ts && npm run copy:views && npm run copy:public",
+    "copy:views": "cpx \"src/views/**/*\" dist/views",
+    "copy:public": "cpx \"src/public/**/*\" dist/public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
