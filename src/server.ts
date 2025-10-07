@@ -1,7 +1,9 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
+
+import todoRoutes from './routes/todoRoutes';
 
 dotenv.config();
 const app = express();
@@ -17,9 +19,10 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', (req: Request, res: Response) => {
+  res.redirect('/todos');
 });
+app.use('/todos', todoRoutes);
 
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)

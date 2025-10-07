@@ -1,0 +1,27 @@
+<div
+  class="flex justify-between items-center gap-2 p-2 rounded-sm bg-stone-200 hover:bg-stone-300 transition"
+>
+  <form
+    action="todos/toggle/<%= todo._id %>"
+    method="POST"
+    class="flex items-center"
+  >
+    <button
+      class="w-7 h-7 flex items-center justify-center rounded cursor-pointer"
+    >
+      <img
+        src="<%= todo.completed ? '/checkbox.svg' : '/square.svg' %>"
+        alt="Icon"
+      />
+    </button>
+  </form>
+
+  <p class="grow"><%= todo.title %></p>
+  <form action="todos/delete/<%= todo._id %>" method="POST">
+    <button
+      class="w-8 h-8 flex items-center justify-center rounded cursor-pointer bg-red-500 hover:bg-red-400 transition"
+    >
+      <img src="/trash.svg" alt="Trash Icon" />
+    </button>
+  </form>
+</div>
