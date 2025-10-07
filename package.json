@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/server.js",
     "dev": "npx ts-node src/server.ts",
-    "dev:css": "npx @tailwindcss/cli -i ./src/public/styles.css -o ./src/public/output.css --minify --watch"
+    "dev:css": "npx @tailwindcss/cli -i ./src/public/styles.css -o ./src/public/output.css --minify --watch",
+    "build:css": "npx @tailwindcss/cli -i ./src/public/styles.css -o ./src/public/output.css --minify",
+    "build:ts": "tsc",
+    "build": "npm run build:css && npm run build:ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
